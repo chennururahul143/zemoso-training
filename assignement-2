@@ -27,6 +27,5 @@ Thesaurus = [x1,x2]
 doc1 = ["dog","dog","a","puppy","document"]
 doc2 = ["here", "dog","kitty","puppy"]
 corpus = [doc1, doc2]
-=======
 ouput = search("dog")
 print(ouput)
