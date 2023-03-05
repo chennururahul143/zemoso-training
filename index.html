@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant || App</title>
+    <style>
+      * {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: black;
+}
+
+.fullcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  background-color: lightgray;
+}
+
+.tables {
+  width: 25%;
+}
+
+.title {
+  text-align: center;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+.menu-search {
+  margin: 10px 0;
+}
+
+.table-search {
+  margin: 10px 0;
+}
+
+.table-search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 40%;
+}
+
+.menu-search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+}
+.menu-search button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+}
+.table-search button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 35%;
+}
+.menu-search button:hover {
+  background-color: gray;  
+}
+.table-search button:hover {
+  background-color: grey;  
+}
+
+.table {
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  padding: 10px;
+  border: 3px double black;
+}
+
+.itemname {
+  margin: 0;
+}
+
+.item p {
+  margin: 0;
+  font-size: 17px;
+  
+}
+
+.menu {
+  width: 70%;
+}
+
+.vl {
+  border-left: 3.3px solid black;
+  height: 1650px;
+}
+
+.item {
+  background-color: #f9f9f9;
+  /* margin: 10px 0; */
+  padding: 35px;
+  display: flexbox;
+  justify-content: space-between;
+  border: 4px double black;
+}
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 3px dotted black;
+  width: 80%;
+}
+
+.close-popup {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.popup-message {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.popup-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popup-content td, .popup-content th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.popup-content th {
+  background-color: #f2f2f2;
+}
+
+.popup-content button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.billsummary button {
+  background-color: #f2f2f2;
+  border: none;
+  color: #555;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.billsummary button:hover {
+  background-color: black;
+  color: #f2f2f2;
+}
+
+@media only screen and (max-width: 500px) {
+  .fullcontainer {
+    flex-direction: column;
+  }
+  .tables,.menu {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="fullcontainer">
+      <div class="tables">
+        <div class="title">
+          <h1>Tables</h1>
+        </div>
+        <div class="table-search">
+          <input type="text" placeholder="Search here..." />
+          <button>Search</button>
+        </div>
+        <div class="table" id="table1">
+          <h2 class="itemname">Table1</h2>
+          <p>Cost: Rs.<span id="table1-cost">0</span></p>
+          <p>Total Items: <span id="table1-count">0</span></p>
+        </div>
+        <div class="table" id="table2">
+          <h2 class="itemname">Table2</h2>
+          <p>Cost: Rs.<span id="table2-cost">0</span></p>
+          <p>Total Items: <span id="table2-count">0</span></p>
+        </div>
+        <div class="table" id="table3">
+          <h2 class="itemname">Table3</h2>
+          <p>Cost: Rs.<span id="table3-cost">0</span></p>
+          <p>Total Items: <span id="table3-count">0</span></p>
+        </div>
+        <div class="table" id="table4">
+          <h2 class="itemname">Table4</h2>
+          <p>Cost: Rs.<span id="table4-cost">0</span></p>
+          <p>Total Items: <span id="table4-count">0</span></p>
+        </div>
+      </div>
+      <div class="vl"></div>
+      <div class="menu">
+        <div class="title">
+          <h1>Menu</h1>
+        </div>
+        
+        <div class="menu-search" id="menu-search">
+          <input type="text" placeholder="Search here.." />
+          <button>Search</button>
+        </div>   
+        <div class="menusort"></div>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="masaladosa" foodtype="biryani">Chicken Dum Biryani</h2>
+          <p>Rs.250</p>
+        </div>
+        <hr>  
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="oniondosa" foodtype="biryani">Chillie Chicken</h2>
+          <p>Rs.245</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="idly" foodtype="biryani">Chicken kebab</h2>
+          <p>Rs.135</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="chapathi" foodtype="biryani">Veg Biryani</h2>
+          <p>Rs.160</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="kinley" foodtype="starters">Dragon Chicken</h2>
+          <p>Rs.225</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="thumbsup" foodtype="starters">Chicken 65</h2>
+          <p>Rs.245</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="cococola" foodtype="biryani">Special Chicken Biryani</h2>
+          <p>Rs.285</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="frenchfries" foodtype="fries">French Fries</h2>
+          <p>Rs.145</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Vannila Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Chocolate Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Butterscotch Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="badamkulfi" foodtype="icecream">Rainbow Icecream</h2>
+          <p>Rs.50</p>
+        </div>
+        </div>   
+      </div>
+      
+    </div>
+
+    <div class="popup" id="table-popup">
+      <div class="popup-content">
+        <span class="close-popup" onclick="closeTablePopup()">&times;</span>
+        <h2 class="popup-title">Table Details</h2>
+        <table class="billsummary">
+          <tr class="billheading">
+            <th>S.NO</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th colspan=2>No.of servings</th>
+          </tr>
+        </table>
+        <p class="popup-message">This table has <span id="table-count"></span> items, Rs.<span id="popup-table-cost"></span></p>
+        <button onclick="closeTablePopup()">Close Table</button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
