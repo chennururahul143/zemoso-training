@@ -1,0 +1,213 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: black;
+}
+
+.fullcontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.tables {
+  width: 25%;
+}
+
+.title {
+  text-align: center;
+}
+
+h1 {
+  font-size: 38px;
+  margin: 0;
+}
+
+.menu-search {
+  margin: 10px 0;
+}
+
+.table-search {
+  margin: 10px 0;
+}
+
+.table-search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 30%;
+}
+
+.menu-search input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 50%;
+}
+.menu-search button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 10%;
+}
+.table-search button {
+  padding: 10px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 35%;
+}
+.menu-search button:hover {
+  background-color: gray;  
+}
+.table-search button:hover {
+  background-color: grey;  
+}
+
+.table {
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  padding: 10px;
+  border: 3px double black;
+}
+
+.itemname {
+  margin: 0;
+}
+
+.item p {
+  margin: 0;
+}
+
+.menu {
+  width: 70%;
+}
+
+.vl {
+  border-left: 4px solid black;
+  height: 1330px;
+}
+
+.item {
+  background-color: #f9f9f9;
+  margin: 10px 0;
+  padding: 30px;
+  display: flexbox;
+  justify-content: space-between;
+  border: 3px double black;
+}
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  overflow: auto;
+}
+
+.popup-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 3px dotted black;
+  width: 80%;
+}
+
+.close-popup {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-title {
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.popup-message {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.popup-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.popup-content td, .popup-content th {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.popup-content th {
+  background-color: #f2f2f2;
+}
+
+.popup-content button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.billsummary button {
+  background-color: #f2f2f2;
+  border: none;
+  color: #555;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.billsummary button:hover {
+  background-color: #555;
+  color: #f2f2f2;
+}
+
+@media only screen and (max-width: 500px) {
+  .fullcontainer {
+    flex-direction: column;
+  }
+  .tables,.menu {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+}
+

@@ -1,32 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
-  <title>Portfolio || page</title>
-</head>
-<body>
-  <h1></h1>
-  <div class="header">
-    <a href="index.html" class="logo">My Site</a>
-    <div class="header-right">
-      <a href="index.html" class="active">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="about us.html">About</a>
-      <a href="Gallery.html">Gallery</a>
+  <head>
+    <link rel="stylesheet" href="index.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant || App</title>
+  </head>
+  <body>
+    <div class="fullcontainer">
+      <div class="tables">
+        <div class="title">
+          <h1>Tables</h1>
+        </div>
+        <div class="table-search">
+          <input type="text" placeholder="Search here..." />
+          <button>Search</button>
+        </div>
+        <div class="table" id="table1">
+          <h2 class="itemname">Table1</h2>
+          <p>Cost: Rs.<span id="table1-cost">0</span></p>
+          <p>Total Items: <span id="table1-count">0</span></p>
+        </div>
+        <div class="table" id="table2">
+          <h2 class="itemname">Table2</h2>
+          <p>Cost: Rs.<span id="table2-cost">0</span></p>
+          <p>Total Items: <span id="table2-count">0</span></p>
+        </div>
+        <div class="table" id="table3">
+          <h2 class="itemname">Table3</h2>
+          <p>Cost: Rs.<span id="table3-cost">0</span></p>
+          <p>Total Items: <span id="table3-count">0</span></p>
+        </div>
+        <div class="table" id="table4">
+          <h2 class="itemname">Table4</h2>
+          <p>Cost: Rs.<span id="table4-cost">0</span></p>
+          <p>Total Items: <span id="table4-count">0</span></p>
+        </div>
+      </div>
+      <div class="vl"></div>
+      <div class="menu">
+        <div class="title">
+          <h1>Menu</h1>
+        </div>
+        
+        <div class="menu-search" id="menu-search">
+          <input type="text" placeholder="Search here.." />
+          <button>Search</button>
+        </div>   
+        <div class="menusort"></div>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="masaladosa" foodtype="biryani">Chicken Dum Biryani</h2>
+          <p>Rs.250</p>
+        </div>
+        <hr>  
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="oniondosa" foodtype="biryani">Chillie Chicken</h2>
+          <p>Rs.245</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="idly" foodtype="biryani">Chicken kebab</h2>
+          <p>Rs.135</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="chapathi" foodtype="biryani">Veg Biryani</h2>
+          <p>Rs.160</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="kinley" foodtype="starters">Dragon Chicken</h2>
+          <p>Rs.225</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="thumbsup" foodtype="starters">Chicken 65</h2>
+          <p>Rs.245</p>
+        </div> 
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="cococola" foodtype="biryani">Special Chicken Biryani</h2>
+          <p>Rs.285</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="frenchfries" foodtype="fries">French Fries</h2>
+          <p>Rs.145</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Vannila Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Chocolate Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="vanillaicecream" foodtype="icecream">Butterscotch Icecream</h2>
+          <p>Rs.45</p>
+        </div>
+        <hr>
+        <div class="item">
+          <h2 class="itemname" draggable="true" id="badamkulfi" foodtype="icecream">Rainbow Icecream</h2>
+          <p>Rs.50</p>
+        </div>
+        </div>   
+      </div>
+      
     </div>
-  </div>
-  
-  <div style="padding-left:20px">
-    <h1>Welcome to my assignment site!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id velit quam nobis architecto aliquam numquam voluptatum quasi illum quos laborum perferendis alias, in mollitia. Soluta enim molestiae quos voluptas maxime.</p>
-    <img src="/pexels-hilal-bülbül-12604928.jpg" style= "width: 100%;" alt="Image is clear">
-  </div>
 
-<!-- <button onclick="colorchange()">Click me</button>
-<div id="changeme"></div>
-<script src="Javascript/app.js"></script> -->
-</body>
+    <div class="popup" id="table-popup">
+      <div class="popup-content">
+        <span class="close-popup" onclick="closeTablePopup()">&times;</span>
+        <h2 class="popup-title">Table Details</h2>
+        <table class="billsummary">
+          <tr class="billheading">
+            <th>S.NO</th>
+            <th>Item</th>
+            <th>Price</th>
+            <th colspan=2>No.of servings</th>
+          </tr>
+        </table>
+        <p class="popup-message">This table has <span id="table-count"></span> items, Rs.<span id="popup-table-cost"></span></p>
+        <button onclick="closeTablePopup()">Close Table</button>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>
